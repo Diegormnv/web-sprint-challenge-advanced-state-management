@@ -1,11 +1,52 @@
+import { FETCH_SMURF_FAIL, FETCH_SMURF_SUCCESS, FETCH_SMURF_START, 
+         ADD_SMURF_FAIL,ADD_SMURF_SUCCESS } from '../actions';
 
 export const initialState = {
+    smurf: [],
+    isFetching: false,
+    error: ''
+
 }
 
-const reducer = ()=>{
-}
-
-export default reducer;
+export const reducer = (state = initialState, action)=>{
+    switch(action.type){
+        case(FETCH_SMURF_START):
+            return({
+                ...state,
+                isFetching: true,
+                error: '',
+                smurf: []
+            });
+        case(FETCH_SMURF_SUCCESS):
+            return({
+                ...state,
+                isFetching: false,
+                error: '',
+                smurf: action.payload
+            });
+        case(FETCH_SMURF_FAIL):
+            return({
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }); 
+        case(ADD_SMURF_SUCCESS):
+            return({
+                ...state,
+                smurf:[
+                    ...state.smurf,
+                    {
+                        name:action.payload.name,
+                        position:action.payload.position,
+                        nickname: action.payload.nickname,
+                        description: action.payload.description
+                    },
+                ],
+            });
+        default:
+            return(state);
+    }
+};
 
 //Task List:
 //1. Add in the initialState needed to hold: 
