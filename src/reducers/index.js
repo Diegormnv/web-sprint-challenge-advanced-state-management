@@ -21,7 +21,6 @@ export const reducer = (state = initialState, action)=>{
             return({
                 ...state,
                 isFetching: false,
-                error: '',
                 smurf: action.payload
             });
         case(FETCH_SMURF_FAIL):
@@ -50,7 +49,7 @@ export const reducer = (state = initialState, action)=>{
                 isFetching: false,
                 error: action.payload
             }); 
-            case(SMURF_ERROR_TEXT):
+        case(SMURF_ERROR_TEXT):
             return({
                 ...state,
                 isFetching: false,

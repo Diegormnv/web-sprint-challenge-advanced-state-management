@@ -29,11 +29,13 @@ class AddForm extends React.Component {
                 nickname: "",
                 description: ""
             })
-        } else{
+        } else {
             this.props.errorText(' Error! Smurf must have name, postion and nickname.')
         }
     }
-
+    // else if(this.props.smurf.name){
+    //     this.props.errorText('This Smurf already exist. Please add another!');
+    // }
 
     render() {
         return(<section>
@@ -55,9 +57,6 @@ class AddForm extends React.Component {
                 {this.props.error &&
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error:{this.props.error} </div>
                 }
-                {this.props.error &&
-                    <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error:{this.props.error} </div>
-                    }
                 <button>Submit Smurf</button>
             </form>
         </section>);

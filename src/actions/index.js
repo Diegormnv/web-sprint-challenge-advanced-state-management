@@ -24,15 +24,17 @@ export const getSmurf = () => dispatch =>{
 export const addSmurf = (smurf) => dispatch =>{
     axios.post('http://localhost:3333/smurfs', smurf)
     .then((res) =>{
+        console.log('RES',res.data)
         dispatch({ type: ADD_SMURF_SUCCESS, payload: smurf});
     })
     .catch((err) =>{
-        dispatch({ type: ADD_SMURF_FAIL, payload: err});
+        console.log('jhvjhvjhv',err)
+        dispatch({ type: ADD_SMURF_FAIL, payload: err.message});
     })
 }
 
 export const errorText = (errMessage) =>{
-    return({ type: SMURF_ERROR_TEXT, payload: errMessage})
+    return({ type: SMURF_ERROR_TEXT, payload: errMessage.message})
 }
 
 //Task List:
