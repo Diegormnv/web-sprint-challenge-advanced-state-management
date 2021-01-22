@@ -54,7 +54,11 @@ class AddForm extends React.Component {
                 </div>
                 {this.props.error &&
                 <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error:{this.props.error} </div>
-                }<button>Submit Smurf</button>
+                }
+                {this.props.error &&
+                    <div data-testid="errorAlert" className="alert alert-danger" role="alert">Error:{this.props.error} </div>
+                    }
+                <button>Submit Smurf</button>
             </form>
         </section>);
     }

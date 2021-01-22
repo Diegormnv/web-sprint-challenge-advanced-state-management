@@ -5,8 +5,6 @@ import { connect } from 'react-redux';
 import Smurf from './Smurf';
 
 export class SmurfDisplay extends React.Component {
-    
-
     componentDidMount() {
         this.props.getSmurf();
     }
@@ -20,6 +18,11 @@ export class SmurfDisplay extends React.Component {
         if(this.props.error){
             return <h3>OOPS! An error occured rerieving Smurfs!</h3>
         }
+
+        if(this.props.smurf.name){
+            return<h3>This Smurf already exist. Please add another!</h3>
+        }
+        
         return(<div>
             {this.props.smurf.map((character) =>{
                 return <Smurf smurf={character} />
