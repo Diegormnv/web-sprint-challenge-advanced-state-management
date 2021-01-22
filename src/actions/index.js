@@ -5,6 +5,7 @@ export const FETCH_SMURF_SUCCESS = 'FETCH_SMURF_SUCCESS';
 export const FETCH_SMURF_FAIL = 'FETCH_SMURF_FAIL';
 export const ADD_SMURF_FAIL = 'ADD_SMURF_FAIL';
 export const ADD_SMURF_SUCCESS = 'ADD_SMURF_SUCCESS';
+export const SMURF_ERROR_TEXT = 'SMURF_ERROR_TEXT';
 
 
 
@@ -28,6 +29,10 @@ export const addSmurf = (smurf) => dispatch =>{
     .catch((err) =>{
         dispatch({ type: ADD_SMURF_FAIL, payload: err});
     })
+}
+
+export const errorText = (errMessage) =>{
+    return({ type: SMURF_ERROR_TEXT, payload: errMessage})
 }
 
 //Task List:

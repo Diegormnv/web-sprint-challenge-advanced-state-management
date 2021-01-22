@@ -1,5 +1,5 @@
 import { FETCH_SMURF_FAIL, FETCH_SMURF_SUCCESS, FETCH_SMURF_START, 
-         ADD_SMURF_FAIL,ADD_SMURF_SUCCESS } from '../actions';
+         ADD_SMURF_FAIL,ADD_SMURF_SUCCESS, SMURF_ERROR_TEXT } from '../actions';
 
 export const initialState = {
     smurf: [],
@@ -33,6 +33,7 @@ export const reducer = (state = initialState, action)=>{
         case(ADD_SMURF_SUCCESS):
             return({
                 ...state,
+                isFetching: false,
                 smurf:[
                     ...state.smurf,
                     {
@@ -43,6 +44,18 @@ export const reducer = (state = initialState, action)=>{
                     },
                 ],
             });
+        case(ADD_SMURF_FAIL):
+            return({
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }); 
+            case(SMURF_ERROR_TEXT):
+            return({
+                ...state,
+                isFetching: false,
+                error: action.payload
+            }); 
         default:
             return(state);
     }
