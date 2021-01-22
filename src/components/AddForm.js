@@ -33,9 +33,6 @@ class AddForm extends React.Component {
             this.props.errorText(' Error! Smurf must have name, postion and nickname.')
         }
     }
-    // else if(this.props.smurf.name){
-    //     this.props.errorText('This Smurf already exist. Please add another!');
-    // }
 
     render() {
         return(<section>

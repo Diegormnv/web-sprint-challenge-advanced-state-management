@@ -24,7 +24,7 @@ export const getSmurf = () => dispatch =>{
 export const addSmurf = (smurf) => dispatch =>{
     axios.post('http://localhost:3333/smurfs', smurf)
     .then((res) =>{
-        console.log('RES',res.data)
+        // console.log('RES',res.data)
         dispatch({ type: ADD_SMURF_SUCCESS, payload: smurf});
     })
     .catch((err) =>{
@@ -34,7 +34,7 @@ export const addSmurf = (smurf) => dispatch =>{
 }
 
 export const errorText = (errMessage) =>{
-    return({ type: SMURF_ERROR_TEXT, payload: errMessage.message})
+    return({ type: SMURF_ERROR_TEXT, payload: errMessage})
 }
 
 //Task List:
